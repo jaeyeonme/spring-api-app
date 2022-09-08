@@ -15,7 +15,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     show-sql: true # 콘솔창에 sql 출력
     properties:
       hibernate:
@@ -30,7 +30,7 @@ spring:
 
   mvc:
     pathmatch:
-      matching-strategy: ant_path_matcher
+      matching-strategy: ant_path_matcher # swagger 오류 관련 수정
 
 logging:
   level:
@@ -46,5 +46,13 @@ feign:
 
 kakao:
   client:
-    id:
-    secret:
+    id: ENC(q80tfRnPYQGss1bghvuS0vbKGfjqRT11LH0hfpNfsSS1Jdd3zQGQTCMYoW6Q9ZFV)
+    secret: ENC(2ehJ1xxgvpSiR26NZNP/1FI6Gp+76h+hUu4PNPXZc4bbdjNL7beyi+QkiXq/zWlr)
+
+token:
+  secret: ENC(r4hQfhiw1QoOSxj7FTj+k3guS/WKyd9RkYmBBu0pwzk3iQ1sDKU6uQ==) # 임의의 문자열
+  access-token-expiration-time: 900000 # 15분 1000(ms) x 60(s) x 15(m)
+  refresh-token-expiration-time: 1209600000 # 2주 1000(ms) x 60 (s) x 60(m) x 24(h) x 14(d)
+
+jasypt:
+  password: ${PASSWORD}
